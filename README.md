@@ -29,6 +29,8 @@ The skill has three layers:
 
 ## Demo
 
+<img width="1280" height="683" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/d8005659-50d6-471e-8144-11fcff05a183" />
+
 ## Structure
 
 ```
