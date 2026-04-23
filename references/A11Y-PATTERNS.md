@@ -13,13 +13,13 @@ elements and Escape closes it.
 ```javascript
 function openModal(modal) {
   const focusableElements = modal.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
   );
   const firstElement = focusableElements[0];
   const lastElement = focusableElements[focusableElements.length - 1];
 
-  modal.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
       if (e.shiftKey && document.activeElement === firstElement) {
         e.preventDefault();
         lastElement.focus();
@@ -28,7 +28,7 @@ function openModal(modal) {
         firstElement.focus();
       }
     }
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       closeModal();
     }
   });
@@ -82,9 +82,12 @@ Announce errors to screen readers and focus the first invalid field on submit.
 <form novalidate>
   <div class="field" aria-live="polite">
     <label for="email">Email</label>
-    <input type="email" id="email"
-           aria-invalid="true"
-           aria-describedby="email-error">
+    <input
+      type="email"
+      id="email"
+      aria-invalid="true"
+      aria-describedby="email-error"
+    />
     <p id="email-error" class="error" role="alert">
       Please enter a valid email address (e.g., name@example.com)
     </p>
@@ -93,15 +96,14 @@ Announce errors to screen readers and focus the first invalid field on submit.
 ```
 
 ```javascript
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   const firstError = form.querySelector('[aria-invalid="true"]');
   if (firstError) {
     e.preventDefault();
     firstError.focus();
 
-    const errorSummary = document.getElementById('error-summary');
-    errorSummary.textContent =
-      `${errors.length} errors found. Please fix them and try again.`;
+    const errorSummary = document.getElementById("error-summary");
+    errorSummary.textContent = `${errors.length} errors found. Please fix them and try again.`;
     errorSummary.focus();
   }
 });
@@ -116,26 +118,22 @@ Every input needs an associated label—either explicit (`for`/`id`) or implicit
 
 ```html
 <!-- ❌ No label association -->
-<input type="email" placeholder="Email">
+<input type="email" placeholder="Email" />
 
 <!-- ✅ Explicit label -->
 <label for="email">Email address</label>
-<input type="email" id="email" name="email"
-       autocomplete="email" required>
+<input type="email" id="email" name="email" autocomplete="email" required />
 
 <!-- ✅ Implicit label -->
 <label>
   Email address
-  <input type="email" name="email" autocomplete="email" required>
+  <input type="email" name="email" autocomplete="email" required />
 </label>
 
 <!-- ✅ With instructions -->
 <label for="password">Password</label>
-<input type="password" id="password"
-       aria-describedby="password-requirements">
-<p id="password-requirements">
-  Must be at least 8 characters with one number.
-</p>
+<input type="password" id="password" aria-describedby="password-requirements" />
+<p id="password-requirements">Must be at least 8 characters with one number.</p>
 ```
 
 ---
@@ -178,10 +176,18 @@ Tabs require `role="tablist"`, `role="tab"`, and `role="tabpanel"` with proper
 
 ```html
 <div role="tablist" aria-label="Product information">
-  <button role="tab" id="tab-1" aria-selected="true"
-          aria-controls="panel-1">Description</button>
-  <button role="tab" id="tab-2" aria-selected="false"
-          aria-controls="panel-2" tabindex="-1">Reviews</button>
+  <button role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">
+    Description
+  </button>
+  <button
+    role="tab"
+    id="tab-2"
+    aria-selected="false"
+    aria-controls="panel-2"
+    tabindex="-1"
+  >
+    Reviews
+  </button>
 </div>
 <div role="tabpanel" id="panel-1" aria-labelledby="tab-1">
   <!-- Panel content -->
@@ -214,9 +220,9 @@ moving focus.
 ```
 
 ```javascript
-function showNotification(message, type = 'polite') {
+function showNotification(message, type = "polite") {
   const container = document.getElementById(`${type}-announcer`);
-  container.textContent = '';
+  container.textContent = "";
   requestAnimationFrame(() => {
     container.textContent = message;
   });
@@ -231,11 +237,11 @@ Clear the container before writing to ensure the same message triggers a new ann
 
 Quick reference for the most common screen reader shortcuts.
 
-| Action | VoiceOver (Mac) | NVDA (Windows) |
-|--------|-----------------|----------------|
-| Start/Stop | ⌘ + F5 | Ctrl + Alt + N |
-| Next item | VO + → | ↓ |
-| Previous item | VO + ← | ↑ |
-| Activate | VO + Space | Enter |
-| Headings list | VO + U, then arrows | H / Shift + H |
-| Links list | VO + U | K / Shift + K |
+| Action        | VoiceOver (Mac)     | NVDA (Windows) |
+| ------------- | ------------------- | -------------- |
+| Start/Stop    | ⌘ + F5              | Ctrl + Alt + N |
+| Next item     | VO + →              | ↓              |
+| Previous item | VO + ←              | ↑              |
+| Activate      | VO + Space          | Enter          |
+| Headings list | VO + U, then arrows | H / Shift + H  |
+| Links list    | VO + U              | K / Shift + K  |
