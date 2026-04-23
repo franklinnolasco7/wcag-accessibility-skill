@@ -14,10 +14,12 @@ The skill has three layers:
 1. **`SKILL.md`** — Core knowledge loaded immediately. WCAG principles, critical issues by level, code patterns, testing guidance, and VPAT documentation.
 
 2. **`references/`** — Deep reference material:
+   - `WCAG.md` — Success criteria by level (A/AA/AAA) with common ARIA patterns
+   - `A11Y-PATTERNS.md` — Code patterns for modals, forms, tabs, live regions
    - `wcag-guides-full.md` — All 87 WCAG 2.2 guides organized by level
    - `wcag-glossary.md` — 63 accessibility terms defined
+   - `quick-reference.md` — Condensed criterion and ARIA lookup tables
    - `testing-procedures.md` — Manual testing procedures
-   - `quick-reference.md` — Condensed criterion and ARIA lookup tables (fast lookup without loading all 91 guides)
    - `vpat-template-guide.md` — VPAT/ACR completion guide
 
 3. **`scripts/`** — Utility tools:
@@ -26,8 +28,6 @@ The skill has three layers:
    - `aria-lint-rules.json` — ESLint/axe configuration
 
 ## Demo
-
-<img width="1280" height="720" alt="gif-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/07b1423a-d3a4-4040-8e16-06de8217218b" />
 
 ## Structure
 
@@ -38,11 +38,13 @@ wcag-accessibility-skill/
 ├── README.md                             # This file
 ├── LICENSE                               # MIT License
 ├── references/
-│   ├── wcag-guides-full.md               # All 87 WCAG 2.2 guides by level
-│   ├── wcag-glossary.md                  # 63 accessibility terms
-│   ├── quick-reference.md               # Condensed criterion and ARIA lookup tables
-│   ├── testing-procedures.md            # Manual testing procedures
-│   └── vpat-template-guide.md           # VPAT/ACR documentation guide
+│   ├── WCAG.md                       # Success criteria by level (A/AA/AAA)
+│   ├── A11Y-PATTERNS.md            # Code patterns for modals, forms, tabs
+│   ├── wcag-guides-full.md         # All 87 WCAG 2.2 guides by level
+│   ├── wcag-glossary.md            # 63 accessibility terms
+│   ├── quick-reference.md         # Condensed SC and ARIA lookup tables
+│   ├── testing-procedures.md       # Manual testing procedures
+│   └── vpat-template-guide.md     # VPAT/ACR documentation guide
 └── scripts/
     ├── contrast-check.js                 # Node.js color contrast batch checker
     ├── wcag-audit-report.js              # Transforms axe-core JSON into grouped WCAG report
