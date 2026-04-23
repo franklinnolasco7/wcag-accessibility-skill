@@ -25,6 +25,10 @@ The skill has three layers:
    - `wcag-audit-report.js` — Transforms axe-core JSON into grouped WCAG report with VPAT hints
    - `aria-lint-rules.json` — ESLint/axe configuration
 
+## Demo
+
+<img width="1280" height="720" alt="gif-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/07b1423a-d3a4-4040-8e16-06de8217218b" />
+
 ## Structure
 
 ```
